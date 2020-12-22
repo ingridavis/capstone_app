@@ -1,0 +1,101 @@
+/* Global */
+
+
+/* App main index.html  */
+.main-headline{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding-top: 50px;
+    padding-right: 20px;
+    padding-left: 20px;
+    padding-bottom: 50px;
+   
+}
+.main-button{
+    padding-top: 15px;
+    text-align: center;
+}
+.btn-lg{
+    width: 250px;
+    height: 50px;
+    border-radius: 25px!important;
+}
+ /* Create_account html */ 
+.login-form{
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+}
+.form-group{
+    text-align: left;
+    width: 500px;
+}
+@media(max-width:600px){
+    .form-group{
+        padding-left: 20px;
+        width: 400px;
+    }
+}
+
+
+/* Homepage html  --- Events list page  */
+div.list-group{
+    width:450px;
+    display: flex;
+    flex-wrap: wrap;
+    
+}
+@media(min-width:600px){
+    div.list-group{
+        width: 800px;
+        display: flex;
+    } 
+}
+.search-bar{
+    display: inline;
+    width: 800px;
+}
+@media(min-width:600px){
+    .search-bar{
+        display: inline;
+        
+    }
+}
+
+
+/* Log in html */
+.btn-fb{
+    background-color: rgb(11, 90, 165);
+    color: white;
+    
+}
+
+/*  Event preview  */
+
+.event-details{
+    padding-left: 20px;
+    padding-right: 20px;
+    display: flex;
+    flex-direction: column;
+}
+@media(min-width: 600px){
+    .event-details{
+        width: 700px;
+        
+    }
+}
+.date-location{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+}
+
+.image-placeholder{
+    width: 100%;
+}
+img{
+    max-width: 90%;
+}
