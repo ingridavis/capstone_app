@@ -1,94 +1,61 @@
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+{% extends 'base_layout.html' %}
+      
+{% block content %}
+ <!--Search bar -->
+ <form class="form-inline my-2 my-lg-0 search-bar ">
+    <div class="search">
+      <input class="form-control mr-sm-2 " type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </div>
+      
+  </form>
+  <!--Events listing-->
+  <div class="main-headline">
     
-    <title>Events home page</title>
-</head>
-<body>
-    <header>
-        <!--Navbar-->
-        <div>
-          <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="#">AppName</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-              <div class="navbar-nav">
-                <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
-                <a class="nav-item nav-link" href="#">How it Works</a>
-                <a class="nav-item nav-link" href="#">About Us</a>
-                <a class="nav-item nav-link right" href="#">Log Out</a>
-                <a class="nav-item nav-link right" href="#">Settings</a>
-              </div>
+    <ul class="nav nav-tabs" id = "myTab" role="tablist">
+      <li class="nav-item">
+        <!--Used named urls in my href, from my urls.py file-->
+        <a class="nav-link active" id="home-tab" data-toggle="tab" role="tab" aria-controls="home" href="{% url 'events:list' %}" aria-selected="true">Events</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="forum-tab" data-toggle="tab" role ="tab" aria-controls="forum" href="#" aria-selected="false">Forum</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled" id="alert-tab" data-toggle="tab" role ="tab" aria-controls="alert" href="#" aria-selected="false">Alerts</a>
+      </li>
+    </ul>
+
+    <div class="tab-content" id="myTabContent">
+      <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+      <!--Copy and pasted list group into home tab-->
+        <div class="list-group events">
+          {% for event in events %}
+            <div class="event">
+
+              <a href="#" class="list-group-item list-group-item-action flex-column align-items-start active">
+                <div class="d-flex w-100 justify-content-between">
+                  <h5 class="mb-1"><a href="{% url 'events:detail' event.slug %}">{{event.title}}</a></h5>
+                </div>
+                <p class="mb-1">{{event.snippet}}</p>
+                <small>{{event.date}}</small>
+              </a>
+              
             </div>
-          </nav>
+          {% endfor %}
         </div>
-        <!--Search bar -->
-        <form class="form-inline my-2 my-lg-0 search-bar ">
-          <div class="search">
-            <input class="form-control mr-sm-2 " type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-          </div>
-            
-        </form>
-        <!--Events listing-->
-        <div class="main-headline">
-          
-          <div class="btn-group btn-group-toggle" data-toggle="buttons">
-            <label class="btn btn-secondary active">
-              <input type="radio" name="options" id="option1" autocomplete="off" checked> Upcoming Events
-            </label>
-            <label class="btn btn-secondary active">
-              <input type="radio" name="options" id="option2" autocomplete="off"> Forum
-            </label>
-            <label class="btn btn-secondary active">
-              <input type="radio" name="options" id="option3" autocomplete="off"> Alerts
-            </label>
-          </div>
+      <!--Copy and paste ended here-->
+      </div>
+    </div>
 
-        </div>
-        
-        <div class="list-group">
-            <a href="#" class="list-group-item list-group-item-action flex-column align-items-start active">
-              <div class="d-flex w-100 justify-content-between">
-                <h5 class="mb-1">Event Name</h5>
-                <small>3 days ago</small>
-              </div>
-              <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-              <small>November 30, 2020</small>
-            </a>
-            <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-              <div class="d-flex w-100 justify-content-between">
-                <h5 class="mb-1">Event Name</h5>
-                <small class="text-muted">3 days ago</small>
-              </div>
-              <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-              <small class="text-muted">December 1, 2020</small>
-            </a>
-            <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-              <div class="d-flex w-100 justify-content-between">
-                <h5 class="mb-1">Event Name</h5>
-                <small class="text-muted">3 days ago</small>
-              </div>
-              <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-              <small class="text-muted">December 3, 2020</small>
-            </a>
-        </div>
+    <div class="tab-pane fade" id="forum" role="tabpanel" aria-labelledby="forum-tab">
+      <p>Forum stuff goes here</p>
+    </div>
+      
+    <div class="tab-pane fade" id="alert" role="tabpanel" aria-labelledby="alert-tab">
+      <p>Alert stuff goes here</p>
+    </div>
+  </div>
 
-        
-           
 
-        </div>
 
-    </header>
-    <footer>
-        
-    </footer>
-</body>
-</html>
+{% endblock %}

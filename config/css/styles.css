@@ -41,10 +41,12 @@
 
 
 /* Homepage html  --- Events list page  */
+
 div.list-group{
     width:450px;
     display: flex;
     flex-wrap: wrap;
+
     
 }
 @media(min-width:600px){

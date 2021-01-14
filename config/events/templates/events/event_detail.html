@@ -1,0 +1,16 @@
+{% extends 'base_layout.html' %}
+      
+{% block content %}
+
+<div class="event-detail">
+    <div class="event">
+        <h2>{{event.title}}</h2>
+        <img src="{{event.thumb.url}}" alt="photo">
+        <p>{{event.description}}</p>
+        <p>Location: {{event.location}}</p>
+        <p>Date of event: {{event.date}}</p>
+    </div>
+
+</div>
+
+{% endblock %}
