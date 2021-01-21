@@ -8,6 +8,20 @@
           
           </div>
         </div>
+
+        <!--used "." because it is using the directory it is currently in.-->
+        <form class="site-form" action="{%url 'accounts:login'%}" method="post">
+          {% csrf_token %} 
+          
+          {{ form }}
+          <input type="submit" value="login">
+          
+      </form>
+
+      <p>-----------------------------</p>
+
+
+
         <form class="login-form">
           <div class="form-group">
             <!--<label for="exampleInputEmail1">Email address</label>-->
