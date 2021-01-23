@@ -9,5 +9,6 @@ urlpatterns = [
     path('', views.signup_view, name="signup"),
     # create_account function in views will be fired when someone visits this path.
     path('login', views.login_view, name="login"),
+    path('logout', views.logout_view, name="logout"),
     
 ]

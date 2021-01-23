@@ -10,7 +10,9 @@
       </h4>
     </div>
     <div class="main-button">
-      <button type="button" class="btn btn-primary btn-lg">Get Started</button>
+      <a href="{% url 'accounts:signup' %}">
+        <button type="button" class="btn btn-primary btn-lg">Get Started</button>
+      </a>
     </div>
   </div>
 {% endblock %}
