@@ -10,7 +10,10 @@
         <p>Location: {{event.location}}</p>
         <p>Date of event: {{event.date}}</p>
     </div>
-
+    {% if user.is_authenticated %}
+    <p>- {{ user.username }}</p>
+    {% endif %}
 </div>
+
 
 {% endblock %}

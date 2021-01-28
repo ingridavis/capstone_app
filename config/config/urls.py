@@ -27,7 +27,7 @@ urlpatterns = [
     path('events/', include('events.urls')),
     # ^ making a path to the events app urls
     
-    path('', views.index),
+    path('', views.homepage, name='mainhome'),
 ]
 
 urlpatterns += staticfiles_urlpatterns()
