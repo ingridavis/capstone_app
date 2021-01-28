@@ -25,7 +25,11 @@ def login_view(request):
             #retrive user then login the user
             user = form.get_user()
             login(request, user)
-            return redirect("events:list")
+            # if statement for requesting a page but need to be logged in, then will redirect to requested page.
+            if 'next'in request.POST:
+                return redirect(request.POST.get('next'))
+            else:
+                return redirect("events:list")
     else:
         form = AuthenticationForm()
     return render(request, 'accounts/login.html', {'form':form})

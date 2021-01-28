@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 
 # Create your models here.
@@ -9,6 +10,7 @@ class Event(models.Model):
     location=models.CharField(max_length=100)
     date=models.DateField()
     thumb=models.ImageField(default='default.png', blank=True)
+    author = models.ForeignKey(User, on_delete=models.CASCADE, default=None)
 
 
 

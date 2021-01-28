@@ -9,6 +9,11 @@
     </div>
       
   </form>
+  {% if user.is_authenticated %}
+  <p>Welcome, {{ user.username }}. Thanks for logging in.</p>
+  {% endif %}
+
+
   <!--Events listing-->
   <div class="main-headline">
     

@@ -29,18 +29,26 @@
               <li class="nav-item">
                 <a class="nav-link" href="#">About</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Log In</a>
-              </li>
+              <!--If my user is logged in, I only want them to see a logout option-->
+              {% if user.is_authenticated %}
               <li class="nav-item">
                 <form class="nav-link" action="{% url 'accounts:logout' %}" method="POST">
                   {% csrf_token %}
                   <button type="submit">Log Out</button>
                 </form>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="{% url 'accounts:signup' %}">Get Started</a>
-              </li>
+              <!--And if not logged in, they can see login and Sign up options-->
+              {% else %}
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'accounts:login' %}">Log In</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'accounts:signup' %}">Sign Up</a>
+                </li>
+
+              {% endif %}
+
+              
               
             </ul>
           </div>
