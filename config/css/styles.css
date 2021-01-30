@@ -13,6 +13,11 @@
     padding-bottom: 50px;
    
 }
+.main-text{
+    font-family: 'Source Sans Pro', sans-serif;
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
 .main-button{
     padding-top: 15px;
     text-align: center;
@@ -22,6 +27,23 @@
     height: 50px;
     border-radius: 25px!important;
 }
+/* Navbar */
+.nav-logout{
+    background: none;
+    border: 0;
+    cursor: pointer;
+}
+/*  Forms  */
+.site-form{
+    border: 1px solid black;
+    padding: 15px;
+}
+.site-form input{
+    display: block;
+    padding: 10px;
+}
+
+
  /* Create_account html */ 
 .login-form{
     display: flex;
@@ -46,8 +68,6 @@ div.list-group{
     width:450px;
     display: flex;
     flex-wrap: wrap;
-
-    
 }
 @media(min-width:600px){
     div.list-group{
@@ -66,13 +86,39 @@ div.list-group{
     }
 }
 
-
 /* Log in html */
 .btn-fb{
     background-color: rgb(11, 90, 165);
     color: white;
     
 }
+
+/*  Event list page  */
+
+
+/*  Event detail  */
+.event-detail{
+    padding-top: 20px;
+    padding-left: 10px;
+}
+.event p{
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 20px;
+}
+.event h2{
+    font-family: 'Volkhov', serif;
+    font-size: 40px;
+    padding-bottom: 10px;
+}
+.event-img{
+    border: 3px solid black;
+    margin-bottom: 10px;
+}
+.signed-username{
+    font-style: italic;
+    color: rgb(75, 46, 4);
+}
+
 
 /*  Event preview  */
 

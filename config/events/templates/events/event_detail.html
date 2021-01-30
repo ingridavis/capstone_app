@@ -5,13 +5,13 @@
 <div class="event-detail">
     <div class="event">
         <h2>{{event.title}}</h2>
-        <img src="{{event.thumb.url}}" alt="photo">
+        <img class="event-img" src="{{event.thumb.url}}" alt="photo">
         <p>{{event.description}}</p>
         <p>Location: {{event.location}}</p>
         <p>Date of event: {{event.date}}</p>
     </div>
     {% if user.is_authenticated %}
-    <p>- {{ user.username }}</p>
+    <p class="signed-username">Created by: {{ user.username }}</p>
     {% endif %}
 </div>
 
