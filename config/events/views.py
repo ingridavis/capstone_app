@@ -12,6 +12,8 @@ def events_home(request):
     return render(request, 'events/index.html', {'events': events })
     #created dictionary to send to template
 
+
+# User creates new event and submit goes to preview event. 
 @login_required(login_url="/accounts/login")
 def new_event(request):
     if request.method == 'POST':
@@ -28,6 +30,7 @@ def new_event(request):
         form = forms.NewEvent()
     return render(request, "events/new_event.html",{'form': form })
 
+# The preview event is what actually saves the form values
 @login_required(login_url="/accounts/login")
 def preview_event(request):
     return render(request, "events/preview_event.html")

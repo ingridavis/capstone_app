@@ -4,11 +4,19 @@ from django.contrib.auth.models import User
 
 # Create your models here.
 class Event(models.Model):
+    CHOICES =(
+        ('Food'),
+        ('Produce'),
+        ('Clothing'),
+        ('Jewelry'),
+        ('Other')
+    )
     title=models.CharField(max_length=100)
     slug=models.SlugField(null=True, blank=True)
     description=models.TextField()
     location=models.CharField(max_length=100)
     date=models.DateField()
+    category=models.ChoiceField(default="DEFAULT VALUE")
     thumb=models.ImageField(default='default.png', blank=True)
     author = models.ForeignKey(User, on_delete=models.CASCADE, default=None)
 

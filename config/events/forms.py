@@ -7,4 +7,4 @@ from . import models
 class NewEvent(forms.ModelForm):
     class Meta:
         model = models.Event
-        fields = ['title', 'slug', 'description', 'location', 'date', 'thumb']
+        fields = ['date', 'location','title', 'slug', 'description', 'thumb', 'category']
