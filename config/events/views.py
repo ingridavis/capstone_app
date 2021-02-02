@@ -19,11 +19,15 @@ def new_event(request):
     if request.method == 'POST':
         form = forms.NewEvent(request.POST, request.FILES)
         if form.is_valid():
-            # save event to db
-            #save it but don't commit to action yet
             instance = form.save(commit=False)
+            # redirect to preview event 
+
+            # save event to db 
+            #save it but don't commit to action yet
+            
             # below: associating the author of the event with the user that is logged in
             instance.author = request.user
+            # intervene here for redirect to events.
             instance.save()
             return redirect('events:list')
     else:
