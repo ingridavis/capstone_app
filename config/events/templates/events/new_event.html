@@ -9,8 +9,10 @@
         <form class="site-form" action="{%url 'events:new_event'%}" method="post" enctype="multipart/form-data">
           {% csrf_token %}
           {{ form }}
-          <input type="submit" value="Preview Event">
+          <input type="submit" value="Create">
         </form>
+
+        
 
 <p>-------------------------</p>
 
@@ -67,5 +69,6 @@
           </div>
         </form>
         </div>
+        <script src="/static/slugify.js"></script>
 
 {% endblock %}

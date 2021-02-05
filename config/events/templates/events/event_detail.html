@@ -10,9 +10,16 @@
         <p>Location: {{event.location}}</p>
         <p>Date of event: {{event.date}}</p>
     </div>
-    {% if user.is_authenticated %}
-    <p class="signed-username">Created by: {{ user.username }}</p>
-    {% endif %}
+    
+    <p class="signed-username">Created by: ----- </p>
+    
+
+    
+    <div>
+        
+        <a href="{%url 'events:delete' event.id %}">Delete</a>
+    </div>
+    
 </div>
 
 

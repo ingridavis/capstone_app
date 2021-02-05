@@ -22,17 +22,15 @@ class Event(models.Model):
     thumb=models.ImageField(default='default.png', blank=True)
     author = models.ForeignKey(User, on_delete=models.CASCADE, default=None)
 
-
-
     def __str__(self):
         return self.title
     
     def snippet(self):
         return self.description[:50] + '...'
         # taking the first 50 characters to display
-        
-# add in photo later
-# add in category later
+    
+    
+
 
 
 #after making changes to models --- do this:
