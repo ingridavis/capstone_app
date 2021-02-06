@@ -8,10 +8,9 @@ class NewEvent(forms.ModelForm):
     class Meta:
         model = models.Event
         fields = ['title', 
-        'slug', 
         'location', 
         'date', 
         'category', 
         'description', 
         'thumb', ]
-        widgets = {'slug': forms.HiddenInput()}
+       

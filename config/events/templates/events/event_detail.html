@@ -4,23 +4,25 @@
 
 <div class="event-detail">
     <div class="event">
-        <h2>{{event.title}}</h2>
-        <img class="event-img" src="{{event.thumb.url}}" alt="photo">
-        <p>{{event.description}}</p>
-        <p>Location: {{event.location}}</p>
-        <p>Date of event: {{event.date}}</p>
+        <h2>{{object.title}}</h2>
+        <img class="event-img" src="{{object.thumb.url}}" alt="photo">
+        <p>{{object.description}}</p>
+        <p>Location: {{object.location}}</p>
+        <p>Date of event: {{object.date}}</p>
     </div>
     
-    <p class="signed-username">Created by: ----- </p>
+    <p class="signed-username">Created by: {{object.author}} </p>
+
+    {% if object.author == user %}
+        <a class ="btn btn-secondary" href="{%url 'events:update' object.id %}">Edit</a>
+        <a class ="btn btn-secondary" href="{%url 'events:delete' object.id %}">Delete</a>
+    {% endif %}
     
 
     
-    <div>
-        
-        <a href="{%url 'events:delete' event.id %}">Delete</a>
-    </div>
     
 </div>
+
 
 
 {% endblock %}

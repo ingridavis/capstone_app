@@ -1,17 +1,24 @@
 
 from django.urls import path
+from .views import EventListView, EventDetailView, EventCreateView, EventUpdateView, EventDeleteView
 from . import views
 
 app_name = 'events'
 
 urlpatterns = [
+   # home listing view
+    path('', EventListView.as_view(), name='list'),
     
-    path('', views.events_home, name='list'),
-    # create_account function in views will be fired when someone visits this path.
-    path('new_event/', views.new_event, name="new_event"),
-    path('event/<int:id>event_edit/', views.event_edit, name="edit"),
-    path('event/<int:id>event_delete/', views.event_delete, name="delete"),
-    path('<slug:slug>/', views.event_detail, name='detail'),
+    # Create new post
+    path('event/new/', EventCreateView.as_view(), name='new_event'),
+
+    # detail 
+    path('event/<int:pk>event_detail/', EventDetailView.as_view(), name='detail'),
+
+    #update
+    path('event/<int:pk>event_update/', EventUpdateView.as_view(), name='update'),
     
+    #delete
+    path('event/<int:pk>event_delete/', EventDeleteView.as_view(), name='delete'),
     
 ]

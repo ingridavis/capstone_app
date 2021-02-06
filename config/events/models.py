@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.urls import reverse
 
 
 CATEGORY_CHOICES = (
@@ -14,7 +15,7 @@ CATEGORY_CHOICES = (
 class Event(models.Model):
     
     title=models.CharField(max_length=100)
-    slug=models.SlugField(null=True, blank=True)
+    
     description=models.TextField()
     location=models.CharField(max_length=100)
     date=models.DateField()
@@ -24,6 +25,9 @@ class Event(models.Model):
 
     def __str__(self):
         return self.title
+    
+    def get_absolute_url(self):
+        return reverse('events:detail', kwargs={'pk':self.pk})
     
     def snippet(self):
         return self.description[:50] + '...'
