@@ -1,21 +1,36 @@
 {% extends 'base_layout.html' %}
 
 {% block content %}
+<style>
+  body {
+    background-image: url(https://i.pinimg.com/originals/dc/94/f1/dc94f1fc94f00ffe32a51cfa4a302acc.jpg);
+    background-repeat: round;
+    background-size: contain;
+  }
+</style>
+
         <div class="main-headline">
           <div class="main-text">
             <h2>Delete Event</h2>
           </div>
         </div>
-        <form action="" method="post">
+        <div class="form-area">
+          <form action="" method="post">
             {% csrf_token %}
-            <p>Are you sure you want to delete your event "{{ event.title }}"?</p>
-            <div>
-                <button type="submit" class="btn btn-danger btn-lg">Delete</button>
-            <a href="{% url 'events:list' %}">Cancel</a>
-            
+            <div class="content-section">
+              <p><b>Are you sure you want to delete your event "{{ event.title }}"?</b></p>
+              <div class="two-buttons delete-cancel">
+                <button type="submit" class="btn btn-danger">Delete</button>
+                
+              
+                <a href="{% url 'events:list' %}" class="btn btn-dark">Cancel</a>
+              </div>
             </div>
             
+            
         </form>
+        </div>
+        
 
         
          

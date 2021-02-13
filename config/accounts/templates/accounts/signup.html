@@ -1,48 +1,32 @@
 {% extends 'base_layout.html' %}
-      
+{% load crispy_forms_tags %}
 {% block content %}
+<style>
+  body {
+    background-image: url(https://i.pinimg.com/originals/dc/94/f1/dc94f1fc94f00ffe32a51cfa4a302acc.jpg);
+    background-repeat: round;
+    background-size: contain;
+  }
+</style>
 
         <div class="main-headline">
           <div class="main-text">
             <h2>Sign Up</h2>
           </div>
         </div>
-        <!--used "." because it is using the directory it is currently in.-->
-        <form class="site-form" action="." method="post">
+        <div class="form-area">
+          <!--used "." because it is using the directory it is currently in.-->
+          <form class="site-form" action="." method="post">
             {% csrf_token %} 
             
-            {{ form }}
-            <input type="submit" value="signup">
-            
-        </form>
-
-        <p>-----------------------------</p>
-
-      
-          <form>
-            <div class="form-group">
-              <!--<label for="exampleInputEmail1">Email address</label>-->
-              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-              <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-            </div>
-            <div class="form-group">
-              <!--<label>Username</label>-->
-              <input type="username" class="form-control" placeholder="Username">
-
-            </div>
-            <div class="form-group">
-              <!--<label for="exampleInputPassword1">Password</label>-->
-              <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-            </div>
-            
-            <div class="main-button">
-              <button type="button" class="btn btn-lg btn-primary">Sign Up</button>
-            </div>
+            {{ form|crispy }}
+            <!--
+              <input type="submit" value="signup">-->
+            <button type="submit" class="btn btn-dark btn-lg">Sign Up</button>
           </form>
-
-
-          
-
+        </div>
         
+
+    
 
 {% endblock %}

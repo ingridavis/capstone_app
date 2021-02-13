@@ -1,57 +1,51 @@
+
 {% extends 'base_layout.html' %}
       
 {% block content %}
- <!--Search bar -->
- <form class="form-inline my-2 my-lg-0 search-bar ">
+<style>
+  body {
+    background-image: url(https://i.pinimg.com/originals/dc/94/f1/dc94f1fc94f00ffe32a51cfa4a302acc.jpg);
+    background-repeat: round;
+    background-size: contain;
+  }
+</style>
+
+  <!--Search bar -->
+  <form class="form-inline my-2 my-lg-0 search-bar ">
     <div class="search">
       <input class="form-control mr-sm-2 " type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      <button class="btn btn-dark my-2 my-sm-0" type="submit">Search</button>
     </div>
       
   </form>
   {% if user.is_authenticated %}
-  <p>Welcome, {{ user.username }}. Thanks for logging in.</p>
+    <p class="welcome-user">Welcome, <b>{{ user.username }}</b>. Thanks for logging in.</p>
   {% endif %}
 
-  <div>
-    <h4><a href="{% url 'events:new_event' %}"> + Create Event</a></h4>
+  <div class="create-event">
+    <h4><a class="btn btn-info" href="{% url 'events:new_event' %}"> + Create Event</a></h4>
   </div>
 
   <!--Events listing-->
-  <nav>
-    <div class="nav nav-tabs" id="nav-tab" role="tablist">
 
-      <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="{% url 'events:list' %}" role="tab" aria-controls="nav-home" aria-selected="true">Events</a>
+        <div class="list-events list-group events">
+          {% for event in events %}
+            <div class="event">
 
-      <a class="nav-item nav-link" id="nav-forum-tab" data-toggle="tab" href="#nav-forum" role="tab" aria-controls="nav-forum" aria-selected="false">Forum</a>
-
-    </div>
-  </nav>
-
-  <div class="tab-content" id="nav-tabContent">
-    <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
-
-      <div class="list-group events">
-        {% for event in events %}
-          <div class="event">
-
-            <a href="#" class="list-group-item list-group-item-action flex-column align-items-start active">
-              <div class="d-flex w-100 justify-content-between">
-                <h5 class="mb-1"><a href="{% url 'events:detail' event.id%}">{{event.title}}</a></h5>
+              <div class="row">
+                <div class="col-sm-6">
+                  <div class="card">
+                    <div class="card-body">
+                      <h5 class="card-title">{{event.date}}</h5>
+                      <p class="card-text">{{event.snippet}}</p>
+                      <a href="{% url 'events:detail' event.id%}" class="btn btn-dark">{{event.title}}</a>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <p class="mb-1">{{event.snippet}}</p>
-              <small>{{event.date}}</small>
-            </a>
-            
+              {% endfor %}
           </div>
-        {% endfor %}
-      </div>
+  
+    {% endblock %}
 
-    </div>
-    <div class="tab-pane fade" id="nav-forum" role="tabpanel" aria-labelledby="nav-forum-tab">Forum stuff goes here</div>
     
-  </div>
-
-
-
-{% endblock %}

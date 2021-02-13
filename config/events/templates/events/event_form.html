@@ -1,16 +1,27 @@
 {% extends 'base_layout.html' %}
 {% load crispy_forms_tags %}
 {% block content %}
+<style>
+  body {
+    background-image: url(https://i.pinimg.com/originals/dc/94/f1/dc94f1fc94f00ffe32a51cfa4a302acc.jpg);
+    background-repeat: round;
+    background-size: contain;
+  }
+</style>
+
         <div class="main-headline">
           <div class="main-text">
             <h2>Create Event</h2>
           </div>
         </div>
-        <form class="site-form" action="{%url 'events:new_event'%}" method="post" enctype="multipart/form-data">
-          {% csrf_token %}
-          {{ form|crispy }}
-          <button type="submit" class="btn btn-primary btn-lg">Submit</button>
-        </form>      
+        <div class="form-area">
+          <form class="site-form" action="{%url 'events:new_event'%}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form|crispy }}
+            <button type="submit" class="btn btn-dark btn-lg">Submit</button>
+          </form> 
+        </div>
+             
          
         <script src="/static/slugify.js"></script>
 

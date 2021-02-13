@@ -12,5 +12,6 @@ class NewEvent(forms.ModelForm):
         'date', 
         'category', 
         'description', 
-        'thumb', ]
+        'photo', ]
+        
        

@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from django.urls import reverse
 
 
+
 CATEGORY_CHOICES = (
     ('food', 'Food'),
     ('jewelry', 'Jewelry'),
@@ -20,7 +21,7 @@ class Event(models.Model):
     location=models.CharField(max_length=100)
     date=models.DateField()
     category=models.CharField(max_length=10, choices=CATEGORY_CHOICES, default="other")
-    thumb=models.ImageField(default='default.png', blank=True)
+    photo=models.ImageField(default='no-image-found.png', blank=True)
     author = models.ForeignKey(User, on_delete=models.CASCADE, default=None)
 
     def __str__(self):

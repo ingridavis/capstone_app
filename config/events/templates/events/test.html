@@ -2,106 +2,101 @@
 {% extends 'base_layout.html' %}
       
 {% block content %}
-  <h5 class="mb-1"><a href="{% url 'detail' event.slug %}">{{ event.title }}</a></h5>
-
-
-  
-        <!--Search bar-->
-        <form class="form-inline my-2 my-lg-0 search-bar ">
-            <div class="search">
-              <input class="form-control mr-sm-2 " type="search" placeholder="Search" aria-label="Search">
-              <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-            </div>
-              
-          </form>
-          <!--Events listing-->
-          <!--Using Bootstrap 4 Navs tab BELOW-->
-          <nav>
-            <div class="nav nav-tabs" id="nav-tab" role="tablist">
-              <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Events</a>
-              <a class="nav-item nav-link" id="nav-forum-tab" data-toggle="tab" href="#nav-forum" role="tab" aria-controls="nav-forum" aria-selected="false">Forum</a>
-              <a class="nav-item nav-link" id="nav-alerts-tab" data-toggle="tab" href="#nav-alerts" role="tab" aria-controls="nav-alerts" aria-selected="false">Alerts</a>
-            </div>
-          </nav>
-  
-          <div class="tab-content" id="nav-tabContent">
-            <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
-              <!--Copy and pasted list group into home tab-->
-              <div class="list-group events">
-                {% for event in events %}
-                  <div class="event">
+  <!--Search bar -->
+  <form class="form-inline my-2 my-lg-0 search-bar ">
+    <div class="search">
+      <input class="form-control mr-sm-2 " type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </div>
       
-                    <a href="#" class="list-group-item list-group-item-action flex-column align-items-start active">
-                      <div class="d-flex w-100 justify-content-between">
-                        <h5 class="mb-1"><a href></a>  {{event.title}}></h5>
-                        
-                      </div>
-                      <p class="mb-1">{{event.snippet}}</p>
-                      <small>{{event.date}}</small>
-                    </a>
-                    
-                  </div>
-                {% endfor %}
-              </div>
-              <!--Copy and paste ended here-->
-            </div>
-  
-            <div class="tab-pane fade" id="nav-forum" role="tabpanel" aria-labelledby="nav-forum-tab"> 
-              <p>Forum stuff goes here</p>
-            </div>
-  
-            <div class="tab-pane fade" id="nav-alerts" role="tabpanel" aria-labelledby="nav-alerts-tab">...</div>
-          </div>
-          <!--END using Navs tab-->
-          
-            
-              
-                
-              
-           
-  
-    {% endblock %}
-     
-    <!-- ---------------------  -->
-    <ul class="nav nav-tabs" id = "myTab" role="tablist">
-      <li class="nav-item">
-        <!--Used named urls in my href, from my urls.py file-->
-        <a class="nav-link active" id="home-tab" data-toggle="tab" role="tab" aria-controls="home" href="{% url 'events:list' %}" aria-selected="true">Events</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" id="forum-tab" data-toggle="tab" role ="tab" aria-controls="forum" href="#" aria-selected="false">Forum</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link disabled" id="alert-tab" data-toggle="tab" role ="tab" aria-controls="alert" href="#" aria-selected="false">Alerts</a>
-      </li>
-    </ul>
-    
-    <div class="tab-content" id="myTabContent">
-      <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-      <!--Copy and pasted list group into home tab-->
+  </form>
+  {% if user.is_authenticated %}
+  <p>Welcome, {{ user.username }}. Thanks for logging in.</p>
+  {% endif %}
+
+  <div>
+    <h4><a href="{% url 'events:new_event' %}"> + Create Event</a></h4>
+  </div>
+
+  <!--Events listing-->
+
         <div class="list-group events">
           {% for event in events %}
             <div class="event">
 
-              <a href="#" class="list-group-item list-group-item-action flex-column align-items-start active">
-                <div class="d-flex w-100 justify-content-between">
-                  <h5 class="mb-1"><a href="{% url 'events:detail' event.slug %}">{{event.title}}</a></h5>
+              <div class="row">
+                <div class="col-sm-6">
+                  <div class="card">
+                    <div class="card-body">
+                      <h5 class="card-title">{{event.snippet}}</h5>
+                      <p class="card-text">{{event.snippet}}</p>
+                      <a href="#" class="btn btn-primary">{{event.title}}</a>
+                    </div>
+                  </div>
                 </div>
-                <p class="mb-1">{{event.snippet}}</p>
-                <small>{{event.date}}</small>
-              </a>
-              
-            </div>
-          {% endfor %}
-        </div>
-      <!--Copy and paste ended here-->
-      </div>
-    </div>
+              </div>
+              {% endfor %}
+          </div>
+  
+    {% endblock %}
+     
+    <p>-----------------------------------</p>
+    <!--********   Original text below-->
 
-    <div class="tab-pane fade" id="forum" role="tabpanel" aria-labelledby="forum-tab">
-      <p>Forum stuff goes here</p>
+    {% extends 'base_layout.html' %}
+      
+{% block content %}
+ <!--Search bar -->
+ <form class="form-inline my-2 my-lg-0 search-bar ">
+    <div class="search">
+      <input class="form-control mr-sm-2 " type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
     </div>
       
-    <div class="tab-pane fade" id="alert" role="tabpanel" aria-labelledby="alert-tab">
-      <p>Alert stuff goes here</p>
+  </form>
+  {% if user.is_authenticated %}
+  <p>Welcome, {{ user.username }}. Thanks for logging in.</p>
+  {% endif %}
+
+  <div>
+    <h4><a href="{% url 'events:new_event' %}"> + Create Event</a></h4>
+  </div>
+
+  <!--Events listing-->
+  <nav>
+    <div class="nav nav-tabs" id="nav-tab" role="tablist">
+
+      <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="{% url 'events:list' %}" role="tab" aria-controls="nav-home" aria-selected="true">Events</a>
+
+      <a class="nav-item nav-link" id="nav-forum-tab" data-toggle="tab" href="#nav-forum" role="tab" aria-controls="nav-forum" aria-selected="false">Forum</a>
+
     </div>
+  </nav>
+
+  <div class="tab-content" id="nav-tabContent">
+    <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+
+      <div class="list-group events">
+        {% for event in events %}
+          <div class="event">
+
+            <a href="#" class="list-group-item list-group-item-action flex-column align-items-start active">
+              <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1"><a href="{% url 'events:detail' event.id%}">{{event.title}}</a></h5>
+              </div>
+              <p class="mb-1">{{event.snippet}}</p>
+              <small>{{event.date}}</small>
+            </a>
+            
+          </div>
+        {% endfor %}
+      </div>
+
+    </div>
+    <div class="tab-pane fade" id="nav-forum" role="tabpanel" aria-labelledby="nav-forum-tab">Forum stuff goes here</div>
+    
+  </div>
+
+
+
+{% endblock %}

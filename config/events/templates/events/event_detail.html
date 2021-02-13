@@ -5,18 +5,26 @@
 <div class="event-detail">
     <div class="event">
         <h2>{{object.title}}</h2>
-        <img class="event-img" src="{{object.thumb.url}}" alt="photo">
+        <div class="date-location">
+            <p>Date of event: {{object.date}}</p>
+            <p><i class="location-icon fas fa-map-marker-alt"></i> {{object.location}}</p>
+    
+        </div>
+        
+        <img class="event-img" src="{{object.photo.url}}" alt="photo">
         <p>{{object.description}}</p>
-        <p>Location: {{object.location}}</p>
-        <p>Date of event: {{object.date}}</p>
+        
+        
     </div>
     
     <p class="signed-username">Created by: {{object.author}} </p>
-
-    {% if object.author == user %}
-        <a class ="btn btn-secondary" href="{%url 'events:update' object.id %}">Edit</a>
-        <a class ="btn btn-secondary" href="{%url 'events:delete' object.id %}">Delete</a>
-    {% endif %}
+    <div class="two-buttons ">
+        {% if object.author == user %}
+        <a class ="btn btn-dark" href="{%url 'events:update' object.id %}">Edit</a>
+        <a class ="btn btn-danger" href="{%url 'events:delete' object.id %}">Delete</a>
+        {% endif %}
+    </div>
+    
     
 
     

@@ -12,7 +12,11 @@
 <form action="" method="post">
     {% csrf_token %}
     {{ form }}
-    <button class="btn btn-info ml-2" type="submit">Update</button>
+    <div>
+        <button class="btn btn-dark btn-lge" type="submit">Update</button>
+        <a href="{% url 'events:list' %}">Cancel</a>
+    </div>
+    
 </form>
 
 {% endblock content %}

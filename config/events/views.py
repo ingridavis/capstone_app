@@ -3,8 +3,9 @@ from .models import Event
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.http import HttpResponse
-from django.contrib.auth.decorators import login_required
 from . import forms
+
+
 
 
 class EventListView(LoginRequiredMixin, ListView):
@@ -24,7 +25,8 @@ class EventCreateView(LoginRequiredMixin, CreateView):
         'date', 
         'category', 
         'description', 
-        'thumb',]
+        'photo',]
+    
     
     def form_valid(self, form):
         form.instance.author = self.request.user
@@ -37,7 +39,7 @@ class EventUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
         'date', 
         'category', 
         'description', 
-        'thumb',]
+        'photo',]
     
     def form_valid(self, form):
         form.instance.author = self.request.user

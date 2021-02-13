@@ -1,6 +1,14 @@
 {% extends 'base_layout.html' %}
       
 {% block content %}
+<style>
+  body {
+    background-image: url(https://i.pinimg.com/originals/dc/94/f1/dc94f1fc94f00ffe32a51cfa4a302acc.jpg);
+    background-size: cover;
+  }
+</style>
+
+<div class="home-background">
   <div class="main-headline">
     <div class="main-text">
       
@@ -11,9 +19,11 @@
     </div>
     <div class="main-button">
       <a href="{% url 'accounts:signup' %}">
-        <button type="button" class="btn btn-primary btn-lg">Get Started</button>
+        <button type="button" class="btn btn-dark btn-lg">Get Started</button>
       </a>
     </div>
   </div>
+</div>
+  
 {% endblock %}
     

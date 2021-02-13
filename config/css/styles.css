@@ -1,22 +1,26 @@
 /* Global */
 
 
+
 /* App main index.html  */
 .main-headline{
     width: 100%;
     display: flex;
     flex-direction: column;
     text-align: center;
-    padding-top: 50px;
+    padding-top: 20px;
     padding-right: 20px;
     padding-left: 20px;
-    padding-bottom: 50px;
+    padding-bottom: 20px;
+    background-color: rgba(222, 184, 135);
+    border: 1px solid rgb(155, 124, 85);
    
 }
 .main-text{
     font-family: 'Source Sans Pro', sans-serif;
     padding-top: 50px;
     padding-bottom: 20px;
+    font-size: 50px;
 }
 .main-button{
     padding-top: 15px;
@@ -27,6 +31,7 @@
     height: 50px;
     border-radius: 25px!important;
 }
+
 /* Navbar */
 .nav-logout{
     background: none;
@@ -34,15 +39,23 @@
     cursor: pointer;
 }
 /*  Forms  */
+.form-text{
+    color: black!important;
+    
+}
 .site-form{
-    border: 1px solid black;
+    text-align: center;
+    
     padding: 15px;
+    
 }
 .site-form input{
     display: block;
     padding: 10px;
 }
-
+.form-area{
+    background-color: rgba(222, 184, 135, 0.699);
+}
 
  /* Create_account html */ 
 .login-form{
@@ -63,11 +76,21 @@
 
 
 /* Homepage html  --- Events list page  */
-
+.welcome-user{
+    font-size: 17px;
+    background-color: rgba(222, 184, 135);
+    padding: 10px 10px 10px 10px;
+}
+.create-event{
+    justify-content: right;
+}
 div.list-group{
     width:450px;
     display: flex;
     flex-wrap: wrap;
+    padding-top: 25px;
+    text-align: center;
+    justify-content: center;
 }
 @media(min-width:600px){
     div.list-group{
@@ -75,16 +98,21 @@ div.list-group{
         display: flex;
     } 
 }
+
+.card{
+    background-color: rgba(95, 158, 160, 0.808);
+    
+
+}
+.card:hover{
+    background-color: rgb(95, 158, 160);
+}
 .search-bar{
     display: inline;
-    width: 800px;
+    width: 50px;
 }
-@media(min-width:600px){
-    .search-bar{
-        display: inline;
-        
-    }
-}
+
+
 
 /* Log in html */
 .btn-fb{
@@ -93,13 +121,12 @@ div.list-group{
     
 }
 
-/*  Event list page  */
-
 
 /*  Event detail  */
 .event-detail{
     padding-top: 20px;
     padding-left: 10px;
+    background-color: burlywood;
 }
 .event p{
     font-family: 'Source Sans Pro', sans-serif;
@@ -112,14 +139,26 @@ div.list-group{
 }
 .event-img{
     border: 3px solid black;
-    margin-bottom: 10px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    
 }
 .signed-username{
     font-style: italic;
     color: rgb(75, 46, 4);
 }
-
-
+.date-location{
+    display: inline-block;
+    padding-bottom: 20px;
+    padding-right: 10px;
+}
+.location-icon{
+    color: rgb(192, 30, 30);
+}
+.two-buttons{
+    text-align: center;
+    padding-bottom: 50px;
+}
 /*  Event preview  */
 
 .event-details{
@@ -146,4 +185,18 @@ div.list-group{
 }
 img{
     max-width: 90%;
+}
+/* Delete html */ 
+.delete-cancel{
+    padding-top: 20px;
+}
+.content-section{
+    padding: 10px 10px 30px 10px;
+
+}
+.content-section p{
+    
+    font-size: 20px;
+    text-align: center;
+    padding-top: 15px;
 }
